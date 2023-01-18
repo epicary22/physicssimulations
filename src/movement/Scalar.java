@@ -9,22 +9,34 @@ public class Scalar
 	private double value;
 	private String name;
 
+	/** Scalar
+	 */
 	public Scalar()
 	{
 		this.name = "scalar";
 	}
 
+	/** Scalar
+	 * @param valuePm double value of the Scalar
+	 */
 	public Scalar(double valuePm)
 	{
 		this.value = valuePm;
 		this.name = "scalar";
 	}
 
+	/** Scalar
+	 * @param namePm name of the Scalar
+	 */
 	public Scalar(String namePm)
 	{
 		this.name = namePm;
 	}
 
+	/** Scalar
+	 * @param valuePm double value of the Scalar
+	 * @param namePm name of the Scalar
+	 */
 	public Scalar(double valuePm, String namePm)
 	{
 		this.value = valuePm;

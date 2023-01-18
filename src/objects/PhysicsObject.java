@@ -22,7 +22,7 @@ public class PhysicsObject
 		this.velocity = velocityPm;
 		this.acceleration = accelerationPm;
 		this.gravity = new Scalar(gravityPm, "gravity");
-		this.mass = new Scalar(massPm, "gravity");
+		this.mass = new Scalar(massPm, "mass");
 	}
 
 	public PhysicsObject(
@@ -40,26 +40,40 @@ public class PhysicsObject
 		this.mass = massPm;
 	}
 
-	public Vector2D position()
+	public Vector2D getPosition()
 	{
 		return this.position;
 	}
 
-	public Vector2D velocity()
+	public Vector2D getVelocity()
 	{
 		return this.position;
 	}
 
-	public Vector2D acceleration()
+	public Vector2D getAcceleration()
 	{
 		return this.position;
 	}
 
-	public double gravity()
+	public double getGravity()
+	{
+		return this.gravity.value();
+	}
+
+	public Scalar getGravityScalar()
 	{
 		return this.gravity;
 	}
-	// Scalar values later
+
+	public double getMass()
+	{
+		return this.mass.value();
+	}
+
+	public Scalar getMassScalar()
+	{
+		return this.mass;
+	}
 
 	/** not complete */
 	public PhysicsObject getFutureObject()
