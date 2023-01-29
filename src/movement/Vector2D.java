@@ -32,8 +32,8 @@ public class Vector2D
 
 	public Vector2D(String namePm)
 	{
-		this.x = new Scalar();
-		this.y = new Scalar();
+		this.x = new Scalar("x");
+		this.y = new Scalar("y");
 		this.name = namePm;
 	}
 
@@ -121,6 +121,11 @@ public class Vector2D
 	{
 		this.incX(vector.getX());
 		this.incY(vector.getY());
+	}
+
+	public String getName()
+	{
+		return this.name;
 	}
 
 	public double getMagnitude()
