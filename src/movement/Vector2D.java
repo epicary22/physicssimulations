@@ -6,24 +6,49 @@ package movement;
 
 public class Vector2D
 {
-	public Scalar x, y;
+	private final Scalar x, y;
+	private String name;
 
 	public Vector2D()
 	{
 		this.x = new Scalar("x");
 		this.y = new Scalar("y");
+		this.name = "vector";
 	}
 
 	public Vector2D(double xPm, double yPm)
 	{
 		this.x = new Scalar(xPm, "x");
 		this.y = new Scalar(yPm, "y");
+		this.name = "vector";
 	}
 
 	public Vector2D(Scalar xPm, Scalar yPm)
 	{
 		this.x = xPm;
 		this.y = yPm;
+		this.name = "vector";
+	}
+
+	public Vector2D(String namePm)
+	{
+		this.x = new Scalar();
+		this.y = new Scalar();
+		this.name = namePm;
+	}
+
+	public Vector2D(double xPm, double yPm, String namePm)
+	{
+		this.x = new Scalar(xPm, "x");
+		this.y = new Scalar(yPm, "y");
+		this.name = namePm;
+	}
+
+	public Vector2D(Scalar xPm, Scalar yPm, String namePm)
+	{
+		this.x = xPm;
+		this.y = yPm;
+		this.name = namePm;
 	}
 
 	public double getX()
