@@ -26,35 +26,35 @@ Named double value. Can do basic math with other Scalars.
 _N/A_  
   
 ### Vector2D  
-Named pair of Scalars. Can do basic vector math, and interact with other Vectors.  
+Named pair of Scalars. Can do basic vector math, and interact with other Vectors.    
 _Uses Scalar. Implements NDimensionalVector._  
   
 ### Vector3D  
-A vector that can perform 3D operations, like the cross product.  
-_Uses Scalar. Extends Vector2D?_  
+A vector that can perform 3D operations, like the cross product.    
+_Uses Scalar. Implements NDimensionalVector._  
   
 ### NDimensionalPoint
-Interface for a point in N dimensions.
+Interface for a point in N dimensions.  
 _N/A_
   
 ### Point2D  
-A point in two dimensions. That's all, a pair of values.
+A point in two dimensions. That's all, a pair of values.  
 _Extends NDimensionalPoint_
   
 ### Point3D  
-A point in three dimensions.
+A point in three dimensions.  
 _Extends NDimensionalPoint_
   
 ### NDimensionalSpace
-A space with N dimensions.
+A space with N dimensions.  
 _N/A_
   
 ### Space2D
-A 2D plane. Can hold Point2Ds and Vector2Ds.
+A 2D plane. Can hold Point2Ds and Vector2Ds.  
 _Extends NDimensionalSpace_
   
 ### Space3D
-A 3D space. Can hold Point3Ds and Vector3Ds.
+A 3D space. Can hold Point3Ds and Vector3Ds.  
 _Extends NDimensionalSpace_
   
 # Interface and Storage
