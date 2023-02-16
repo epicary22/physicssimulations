@@ -35,9 +35,33 @@ class NDimensionalVector
 		}
 	}
 
-	// public NDimensionalVector dot(NDimensionalVector secondVector)
-	// {
-	// }
+	public double get(int pos)
+	{
+		if (pos < this.size && pos >= 0)
+			return this.values.get(index);
+		return 0.0;
+	}
+
+	public double dot(NDimensionalVector secondVector)
+	{
+		int dotProduct;
+		if (this.size == secondVector.size)
+		{
+			dotProduct = 0;
+			for (int i = 0; i < this.size; i++)
+				dotProduct += this.get(i) * secondVector.get(i);
+			return dotProduct;
+		}
+		return 0.0;
+	}
+
+	public double magnitude()
+	{
+		int squaresSum;
+		for (int i = 0; i < this.size; i++)
+			squaresSum += Math.pow(this.get(i), 2);
+		return Math.sqrt(squaresSum);
+	}
 
 	public String toString()
 	{

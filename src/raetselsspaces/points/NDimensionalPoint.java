@@ -29,15 +29,10 @@ public class NDimensionalPoint
 		return this.size;
 	}
 
-	double getValueAtPos(int pos)
+	public double get(int pos)
 	{
 		if (pos < this.size && pos >= 0)
 			return this.values.get(pos);
 		return 0.0;
-	}
-
-	public double get(int pos)
-	{
-		return this.getValueAtPos(pos);
 	}
 }
