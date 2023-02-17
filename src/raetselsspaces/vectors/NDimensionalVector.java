@@ -47,18 +47,18 @@ public class NDimensionalVector
 	public double get(int pos)
 	{
 		if (pos < this.size && pos >= 0)
-			return this.values.get(index);
+			return this.values.get(pos);
 		return 0.0;
 	}
 
-	public double dot(NDimensionalVector secondVector) throws ArithmeticException
+	public double dot(NDimensionalVector otherVector) throws ArithmeticException
 	{
 		int dotProduct;
 		if (this.sameDimensions(otherVector))
 		{
 			dotProduct = 0;
 			for (int i = 0; i < this.size; i++)
-				dotProduct += this.get(i) * secondVector.get(i);
+				dotProduct += this.get(i) * otherVector.get(i);
 			return dotProduct;
 		}
 		else
@@ -87,7 +87,7 @@ public class NDimensionalVector
 
 	public double magnitude()
 	{
-		int squaresSum;
+		double squaresSum = 0;
 		for (int i = 0; i < this.size; i++)
 			squaresSum += Math.pow(this.get(i), 2);
 		return Math.sqrt(squaresSum);
@@ -95,7 +95,7 @@ public class NDimensionalVector
 	
 	public NDimensionalVector direction()
 	{
-		NDimensionalVector directionVector = new NDimensionalVector(this.name + "^", this.multiply(this.magnitude()).getValues());
+		return new NDimensionalVector(this.name + "^", new NDimensionalPoint(this.multiply(this.magnitude()).getValues()));
 	}
 
 	public ArrayList<Double> getValues()
@@ -103,7 +103,17 @@ public class NDimensionalVector
 		return this.values;
 	}
 
-	public double getName()
+	public NDimensionalPoint getStartingPoint()
+	{
+		return this.startingPoint;
+	}
+
+	public NDimensionalPoint getEndingPoint()
+	{
+		return this.endingPoint;
+	}
+
+	public String getName()
 	{
 		return this.name;
 	}

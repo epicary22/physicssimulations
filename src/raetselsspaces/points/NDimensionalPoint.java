@@ -48,6 +48,11 @@ public class NDimensionalPoint
 		return 0.0;
 	}
 
+	public ArrayList<Double> getValues()
+	{
+		return this.values;
+	}
+
 	public String getName()
 	{
 		return this.name;

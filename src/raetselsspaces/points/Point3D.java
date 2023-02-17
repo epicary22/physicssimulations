@@ -11,7 +11,12 @@ public class Point3D extends NDimensionalPoint
 
 	public Point3D(String namePm, ArrayList<Double> valuesPm)
 	{
-		super(3, namePm, valuesPm);
+		super(namePm, valuesPm);
+	}
+
+	public Point3D(NDimensionalPoint ndPointPm)
+	{
+		super(ndPointPm.getName(), ndPointPm.getValues());
 	}
 
 	public double getX()

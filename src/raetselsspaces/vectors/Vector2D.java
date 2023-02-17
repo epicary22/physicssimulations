@@ -1,5 +1,7 @@
 package raetselsspaces.vectors;
 
+import raetselsspaces.points.Point2D;
+
 public class Vector2D extends NDimensionalVector
 {
 	public Vector2D(String namePm, Point2D startingPointPm, Point2D endingPointPm)
@@ -12,6 +14,11 @@ public class Vector2D extends NDimensionalVector
 		super(namePm, endingPointPm);
 	}
 
+	public Vector2D(NDimensionalVector ndVectorPm)
+	{
+		super(ndVectorPm.getName(), ndVectorPm.getStartingPoint(), ndVectorPm.getEndingPoint());
+	}
+
 	public double dot(Vector2D otherVector)
 	{
 		return super.dot(otherVector);
@@ -19,16 +26,16 @@ public class Vector2D extends NDimensionalVector
 
 	public Vector2D add(Vector2D otherVector)
 	{
-		return super.add(otherVector);
+		return new Vector2D(super.add(otherVector));
 	}
 
 	public Vector2D multiply(double scalar)
 	{
-		return super.multiply(scalar);
+		return new Vector2D(super.multiply(scalar));
 	}
 
 	public Vector2D direction()
 	{
-		return super.direction();
+		return new Vector2D(super.direction());
 	}
 }
