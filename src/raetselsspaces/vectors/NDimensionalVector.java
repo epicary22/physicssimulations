@@ -15,10 +15,10 @@ public class NDimensionalVector
 		this.name = namePm;
 		this.startingPoint = startingPointPm;
 		this.endingPoint = endingPointPm;
-		if (this.startingPoint.sameDimensions(this.endingPoint))
+		if (!this.startingPoint.sameDimensions(this.endingPoint))
 			throw new ArithmeticException("Points must be of the same dimension!");
-		this.generateValuesFromPoints();
 		this.size = this.startingPoint.getSize();
+		this.generateValuesFromPoints();
 	}
 
 	public NDimensionalVector(String namePm, NDimensionalPoint endingPointPm)
@@ -26,8 +26,8 @@ public class NDimensionalVector
 		this.name = namePm;
 		this.endingPoint = endingPointPm;
 		this.startingPoint = new NDimensionalPoint(endingPoint.getSize());
-		this.generateValuesFromPoints();
 		this.size = this.startingPoint.getSize();
+		this.generateValuesFromPoints();
 	}
 
 	public boolean sameDimensions(NDimensionalVector secondVector)
@@ -65,6 +65,11 @@ public class NDimensionalVector
 			throw new ArithmeticException("Vectors must be of the same dimensions!");
 	}
 
+	public double angleBetween(NDimensionalVector otherVector)
+	{
+		return Math.acos(this.dot(otherVector) / (this.magnitude() * otherVector.magnitude()));
+	}
+
 	public NDimensionalVector add(NDimensionalVector otherVector) throws ArithmeticException
 	{
 		if (this.sameDimensions(otherVector))
@@ -95,7 +100,7 @@ public class NDimensionalVector
 	
 	public NDimensionalVector direction()
 	{
-		return new NDimensionalVector(this.name + "^", new NDimensionalPoint(this.multiply(this.magnitude()).getValues()));
+		return new NDimensionalVector(this.name + "^", new NDimensionalPoint(this.multiply(1 / this.magnitude()).getValues()));
 	}
 
 	public ArrayList<Double> getValues()
