@@ -3,7 +3,7 @@ package raetselsspaces.vectors;
 import raetselsspaces.points.NDimensionalPoint;
 import java.util.ArrayList;
 
-class NDimensionalVector
+public class NDimensionalVector
 {
 	private NDimensionalPoint startingPoint, endingPoint;
 	private ArrayList<Double> values;
@@ -15,15 +15,24 @@ class NDimensionalVector
 		this.name = namePm;
 		this.startingPoint = startingPointPm;
 		this.endingPoint = endingPointPm;
-		if (!this.pointsSameDimensions())
+		if (this.startingPoint.sameDimensions(this.endingPoint))
 			throw new ArithmeticException("Points must be of the same dimension!");
-		this.size = this.startingPoint.getSize();
 		this.generateValuesFromPoints();
+		this.size = this.startingPoint.getSize();
 	}
 
-	private boolean pointsSameDimensions()
+	public NDimensionalVector(String namePm, NDimensionalPoint endingPointPm)
 	{
-		return (this.startingPoint.getSize() == this.endingPoint.getSize());
+		this.name = namePm;
+		this.endingPoint = endingPointPm;
+		this.startingPoint = new NDimensionalPoint(endingPoint.getSize());
+		this.generateValuesFromPoints();
+		this.size = this.startingPoint.getSize();
+	}
+
+	public boolean sameDimensions(NDimensionalVector secondVector)
+	{
+		return (this.size == secondVector.size);
 	}
 
 	private void generateValuesFromPoints()
@@ -42,17 +51,38 @@ class NDimensionalVector
 		return 0.0;
 	}
 
-	public double dot(NDimensionalVector secondVector)
+	public double dot(NDimensionalVector secondVector) throws ArithmeticException
 	{
 		int dotProduct;
-		if (this.size == secondVector.size)
+		if (this.sameDimensions(otherVector))
 		{
 			dotProduct = 0;
 			for (int i = 0; i < this.size; i++)
 				dotProduct += this.get(i) * secondVector.get(i);
 			return dotProduct;
 		}
-		return 0.0;
+		else
+			throw new ArithmeticException("Vectors must be of the same dimensions!");
+	}
+
+	public NDimensionalVector add(NDimensionalVector otherVector) throws ArithmeticException
+	{
+		if (this.sameDimensions(otherVector))
+		{
+			ArrayList<Double> addedValues = new ArrayList<>();
+			for (int i = 0; i < this.size; i++)
+				addedValues.add(this.get(i) + otherVector.get(i));
+			return new NDimensionalVector(this.name, new NDimensionalPoint(addedValues));
+		}
+		else
+			throw new ArithmeticException("Vectors must be of the same dimensions!");
+	}
+
+	public NDimensionalVector multiply(double scalar)
+	{
+		ArrayList<Double> multipliedValues = new ArrayList<>();
+		this.values.forEach(v -> multipliedValues.add(v * scalar));
+		return new NDimensionalVector("", new NDimensionalPoint(multipliedValues));
 	}
 
 	public double magnitude()
@@ -61,6 +91,26 @@ class NDimensionalVector
 		for (int i = 0; i < this.size; i++)
 			squaresSum += Math.pow(this.get(i), 2);
 		return Math.sqrt(squaresSum);
+	}
+	
+	public NDimensionalVector direction()
+	{
+		NDimensionalVector directionVector = new NDimensionalVector(this.name + "^", this.multiply(this.magnitude()).getValues());
+	}
+
+	public ArrayList<Double> getValues()
+	{
+		return this.values;
+	}
+
+	public double getName()
+	{
+		return this.name;
+	}
+
+	public void rename(String newName)
+	{
+		this.name = newName;
 	}
 
 	public String toString()
