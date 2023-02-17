@@ -60,6 +60,10 @@ public class NDimensionalPoint
 
 	public String toString()
 	{
-		return this.name + this.getValues();
+		String rep = this.name + "(";
+		for (double value : this.values)
+			rep += String.format("%.4f, ", value);
+		rep += "\b\b)";
+		return rep;
 	}
 }

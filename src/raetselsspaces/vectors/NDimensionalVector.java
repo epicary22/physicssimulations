@@ -133,7 +133,7 @@ public class NDimensionalVector
 		String rep = this.name + "<";
 		for (int i = 0; i < this.size; i++)
 		{
-			rep += this.values.get(i) + ", ";
+			rep += String.format("%.4f, ", this.values.get(i));
 		}
 		rep += "\b\b>";
 		return rep;

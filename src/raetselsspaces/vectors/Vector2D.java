@@ -24,6 +24,11 @@ public class Vector2D extends NDimensionalVector
 		return super.dot(otherVector);
 	}
 
+	public double angleBetween(Vector2D otherVector)
+	{
+		return super.angleBetween(otherVector);
+	}
+
 	public Vector2D add(Vector2D otherVector)
 	{
 		return new Vector2D(super.add(otherVector));
