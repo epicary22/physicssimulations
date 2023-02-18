@@ -51,7 +51,7 @@ public class NDimensionalVector
 		return 0.0;
 	}
 
-	public double dot(NDimensionalVector otherVector) throws ArithmeticException
+	double dot(NDimensionalVector otherVector) throws ArithmeticException
 	{
 		int dotProduct;
 		if (this.sameDimensions(otherVector))
@@ -65,32 +65,32 @@ public class NDimensionalVector
 			throw new ArithmeticException("Vectors must be of the same dimensions!");
 	}
 
-	public double angleBetween(NDimensionalVector otherVector)
+	double angleBetween(NDimensionalVector otherVector)
 	{
 		return Math.acos(this.dot(otherVector) / (this.magnitude() * otherVector.magnitude()));
 	}
 
-	public NDimensionalVector add(NDimensionalVector otherVector) throws ArithmeticException
+	NDimensionalVector add(NDimensionalVector otherVector) throws ArithmeticException
 	{
 		if (this.sameDimensions(otherVector))
 		{
 			ArrayList<Double> addedValues = new ArrayList<>();
 			for (int i = 0; i < this.size; i++)
 				addedValues.add(this.get(i) + otherVector.get(i));
-			return new NDimensionalVector(this.name, new NDimensionalPoint(addedValues));
+			return new NDimensionalVector("", new NDimensionalPoint(addedValues));
 		}
 		else
 			throw new ArithmeticException("Vectors must be of the same dimensions!");
 	}
 
-	public NDimensionalVector multiply(double scalar)
+	NDimensionalVector multiply(double scalar)
 	{
 		ArrayList<Double> multipliedValues = new ArrayList<>();
 		this.values.forEach(v -> multipliedValues.add(v * scalar));
 		return new NDimensionalVector("", new NDimensionalPoint(multipliedValues));
 	}
 
-	public double magnitude()
+	double magnitude()
 	{
 		double squaresSum = 0;
 		for (int i = 0; i < this.size; i++)
@@ -98,7 +98,7 @@ public class NDimensionalVector
 		return Math.sqrt(squaresSum);
 	}
 	
-	public NDimensionalVector direction()
+	NDimensionalVector direction()
 	{
 		return new NDimensionalVector(this.name + "^", new NDimensionalPoint(this.multiply(1 / this.magnitude()).getValues()));
 	}
@@ -108,12 +108,12 @@ public class NDimensionalVector
 		return this.values;
 	}
 
-	public NDimensionalPoint getStartingPoint()
+	NDimensionalPoint getStartingPoint()
 	{
 		return this.startingPoint;
 	}
 
-	public NDimensionalPoint getEndingPoint()
+	NDimensionalPoint getEndingPoint()
 	{
 		return this.endingPoint;
 	}

@@ -43,4 +43,14 @@ public class Vector2D extends NDimensionalVector
 	{
 		return new Vector2D(super.direction());
 	}
+
+	public Point2D getStartingPoint()
+	{
+		return new Point2D(super.getStartingPoint());
+	}
+
+	public Point2D getEndingPoint()
+	{
+		return new Point2D(super.getEndingPoint());
+	}
 }

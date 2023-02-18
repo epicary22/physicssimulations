@@ -1,5 +1,6 @@
 package raetselsspaces.vectors;
 
+import raetselsspaces.points.Point2D;
 import raetselsspaces.points.Point3D;
 import java.util.Collections;
 import java.util.ArrayList;
@@ -63,5 +64,15 @@ public class Vector3D extends NDimensionalVector
 	public Vector3D direction()
 	{
 		return new Vector3D(super.direction());
+	}
+
+	public Point3D getStartingPoint()
+	{
+		return new Point3D(super.getStartingPoint());
+	}
+
+	public Point3D getEndingPoint()
+	{
+		return new Point3D(super.getEndingPoint());
 	}
 }
