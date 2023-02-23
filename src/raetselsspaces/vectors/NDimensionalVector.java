@@ -3,6 +3,8 @@ package raetselsspaces.vectors;
 import raetselsspaces.points.NDimensionalPoint;
 import java.util.ArrayList;
 
+// TODO add rounding functionality?
+
 public class NDimensionalVector
 {
 	private NDimensionalPoint startingPoint, endingPoint;
