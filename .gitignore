@@ -1,4 +1,4 @@
 .idea/
 out/
 physicssimulations.iml
-Scratch.java
+build.sh
