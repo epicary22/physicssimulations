@@ -10,9 +10,9 @@ public class Vector3D extends NDimensionalVector
 	public static Vector3D I, J, K;
 	static
 	{
-		I = new Vector3D("i^", new Point3D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
-		J = new Vector3D("j^", new Point3D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
-		K = new Vector3D("k^", new Point3D("k^", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
+		I = new Vector3D("i^", new Point3D("i^", new ArrayList<>(Arrays.asList(1.0, 0.0, 0.0))));
+		J = new Vector3D("j^", new Point3D("j^", new ArrayList<>(Arrays.asList(0.0, 1.0, 0.0))));
+		K = new Vector3D("k^", new Point3D("k^", new ArrayList<>(Arrays.asList(0.0, 0.0, 1.0))));
 	}
 
 	public Vector3D(String namePm, Point3D startingPointPm, Point3D endingPointPm)
@@ -68,5 +68,10 @@ public class Vector3D extends NDimensionalVector
 	public Vector3D direction()
 	{
 		return new Vector3D(super.direction());
+	}
+
+	public Vector3D rename(String newName)
+	{
+		return new Vector3D(super.rename(newName));
 	}
 }
