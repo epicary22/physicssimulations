@@ -126,9 +126,10 @@ public class NDimensionalVector
 		return this.name;
 	}
 
-	public void rename(String newName)
+	public NDimensionalVector rename(String newName)
 	{
 		this.name = newName;
+		return this;
 	}
 
 	public String toString()

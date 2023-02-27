@@ -65,4 +65,9 @@ public class Vector3D extends NDimensionalVector
 	{
 		return new Vector3D(super.direction());
 	}
+
+	public Vector3D rename(String newName)
+	{
+		return new Vector3D(super.rename(newName));
+	}
 }

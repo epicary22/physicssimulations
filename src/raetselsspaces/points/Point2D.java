@@ -14,7 +14,6 @@ public class Point2D extends NDimensionalPoint
 		super(namePm, valuesPm);
 	}
 
-
 	public Point2D(NDimensionalPoint ndPointPm)
 	{
 		super(ndPointPm.getName(), ndPointPm.getValues());

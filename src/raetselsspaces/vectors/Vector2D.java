@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Vector2D extends NDimensionalVector
 {
-	static Vector2D I, J;
+	public static Vector2D I, J;
 	static {
-		I = new Vector2D("i^", new Point2D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0))));
-		J = new Vector2D("j^", new Point2D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0))));
+		I = new Vector2D("i^", new Point2D("i^", new ArrayList<>(Arrays.asList(1.0, 0.0))));
+		J = new Vector2D("j^", new Point2D("j^", new ArrayList<>(Arrays.asList(0.0, 1.0))));
 	}
 
 	public Vector2D(String namePm, Point2D startingPointPm, Point2D endingPointPm)
@@ -50,5 +50,10 @@ public class Vector2D extends NDimensionalVector
 	public Vector2D direction()
 	{
 		return new Vector2D(super.direction());
+	}
+
+	public Vector2D rename(String newName)
+	{
+		return new Vector2D(super.rename(newName));
 	}
 }
