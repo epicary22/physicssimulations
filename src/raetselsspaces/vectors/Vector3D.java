@@ -7,13 +7,9 @@ import java.util.ArrayList;
 
 public class Vector3D extends NDimensionalVector
 {
-	public static Vector3D I, J, K;
-	static
-	{
-		I = new Vector3D("i^", new Point3D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
-		J = new Vector3D("j^", new Point3D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
-		K = new Vector3D("k^", new Point3D("k^", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
-	}
+	public static final Vector3D I = new Vector3D("i^", new Point3D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
+	public static final Vector3D J = new Vector3D("j^", new Point3D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
+	public static final Vector3D K = new Vector3D("k^", new Point3D("k^", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
 
 	public Vector3D(String namePm, Point3D startingPointPm, Point3D endingPointPm)
 	{

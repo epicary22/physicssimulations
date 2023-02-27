@@ -4,6 +4,7 @@ import raetselsspaces.points.NDimensionalPoint;
 import java.util.ArrayList;
 
 // TODO add rounding functionality?
+// TODO also add some functionality to change either the end or start point.
 
 public class NDimensionalVector
 {
