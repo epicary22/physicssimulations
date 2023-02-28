@@ -3,6 +3,9 @@ package raetselsspaces.vectors;
 import raetselsspaces.points.NDimensionalPoint;
 import java.util.ArrayList;
 
+// TODO add rounding functionality?
+// TODO also add some functionality to change either the end or start point.
+
 public class NDimensionalVector
 {
 	private NDimensionalPoint startingPoint, endingPoint;
@@ -123,9 +126,10 @@ public class NDimensionalVector
 		return this.name;
 	}
 
-	public void rename(String newName)
+	public NDimensionalVector rename(String newName)
 	{
 		this.name = newName;
+		return this;
 	}
 
 	public String toString()

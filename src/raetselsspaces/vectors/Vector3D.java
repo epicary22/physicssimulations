@@ -3,19 +3,14 @@ package raetselsspaces.vectors;
 import raetselsspaces.points.Point2D;
 import raetselsspaces.points.Point3D;
 import java.util.Collections;
+import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Vector3D extends NDimensionalVector
 {
-	public static Vector3D I, J, K;
-	static
-	{
-		ArrayList<Double> emptyValues = new ArrayList<>(3);
-		for (int i = 0; i < 3; i++)
-			emptyValues.add(0.0);
-		I = new Vector3D("i^", new Point3D());
-		// TODO figure this out.
-	}
+	public static final Vector3D I = new Vector3D("i^", new Point3D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
+	public static final Vector3D J = new Vector3D("j^", new Point3D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
+	public static final Vector3D K = new Vector3D("k^", new Point3D("k^", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
 
 	public Vector3D(String namePm, Point3D startingPointPm, Point3D endingPointPm)
 	{
@@ -39,11 +34,17 @@ public class Vector3D extends NDimensionalVector
 
 	public Vector3D cross(Vector3D otherVector)
 	{
-		ArrayList<Double> crossValues = new ArrayList<>();
-		crossValues.add(this.get(1) * otherVector.get(2) - this.get(2) * otherVector.get(1));
-		crossValues.add(this.get(2) * otherVector.get(0) - this.get(0) * otherVector.get(2));
-		crossValues.add(this.get(0) * otherVector.get(1) - this.get(1) * otherVector.get(0));
-		return new Vector3D("", new Point3D("", crossValues));
+//		ArrayList<Double> crossValues = new ArrayList<>();
+//		crossValues.add(this.get(1) * otherVector.get(2) - this.get(2) * otherVector.get(1));
+//		crossValues.add(this.get(2) * otherVector.get(0) - this.get(0) * otherVector.get(2));
+//		crossValues.add(this.get(0) * otherVector.get(1) - this.get(1) * otherVector.get(0));
+//		return new Vector3D("", new Point3D("", crossValues));
+
+		return new Vector3D("", new Point3D("", new ArrayList<Double>(Arrays.asList(
+							this.get(1) * otherVector.get(2) - this.get(2) * otherVector.get(1),
+							this.get(2) * otherVector.get(0) - this.get(0) * otherVector.get(2),
+							this.get(0) * otherVector.get(1) - this.get(1) * otherVector.get(0)
+							))));
 	}
 
 	public double angleBetween(Vector3D otherVector)
@@ -71,8 +72,12 @@ public class Vector3D extends NDimensionalVector
 		return new Point3D(super.getStartingPoint());
 	}
 
-	public Point3D getEndingPoint()
-	{
+	public Point3D getEndingPoint() {
 		return new Point3D(super.getEndingPoint());
+	}
+
+	public Vector3D rename(String newName)
+	{
+		return new Vector3D(super.rename(newName));
 	}
 }
