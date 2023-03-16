@@ -1,6 +1,6 @@
 package raetselsspaces.scalars;
 
-class Scalar
+public class Scalar
 {
 	private double value;
 	private String name;

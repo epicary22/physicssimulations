@@ -7,11 +7,12 @@ import raetselsspaces.vectors.Vector3D;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 class Scratch {
 	public static void main(String[] args) {
-		Point3D p1 = new Point3D("", new ArrayList<>(List.of(3.0, 4.0, 5.0)));
-		Point3D p2 = new Point3D("", new ArrayList<>(List.of(5.0, 12.0, 13.0)));
+		Point3D p1 = new Point3D("", new ArrayList<>(Arrays.asList(3.0, 4.0, 5.0)));
+		Point3D p2 = new Point3D("", new ArrayList<>(Arrays.asList(5.0, 12.0, 13.0)));
 
 		Vector3D v1 = new Vector3D("v1", p1);
 		Vector3D v2 = new Vector3D("v2", p2);
