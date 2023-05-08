@@ -1,6 +1,7 @@
 package raetselsspaces.points;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Point3D extends NDimensionalPoint
 {
@@ -12,6 +13,11 @@ public class Point3D extends NDimensionalPoint
 	public Point3D(String namePm, ArrayList<Double> valuesPm)
 	{
 		super(namePm, valuesPm);
+	}
+
+	public Point3D(String namePm, double xPm, double yPm, double zPm)
+	{
+		super(namePm, new ArrayList<>(Arrays.asList(xPm, yPm, zPm)));
 	}
 
 	public Point3D(NDimensionalPoint ndPointPm)

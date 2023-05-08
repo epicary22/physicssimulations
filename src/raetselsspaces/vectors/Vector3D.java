@@ -2,15 +2,14 @@ package raetselsspaces.vectors;
 
 import raetselsspaces.points.Point2D;
 import raetselsspaces.points.Point3D;
-import java.util.Collections;
 import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Vector3D extends NDimensionalVector
 {
-	public static final Vector3D I = new Vector3D("i^", new Point3D("i^", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
-	public static final Vector3D J = new Vector3D("j^", new Point3D("j^", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
-	public static final Vector3D K = new Vector3D("k^", new Point3D("k^", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
+	public static final Vector3D I = new Vector3D("i^", new Point3D("", new ArrayList<Double>(Arrays.asList(1.0, 0.0, 0.0))));
+	public static final Vector3D J = new Vector3D("j^", new Point3D("", new ArrayList<Double>(Arrays.asList(0.0, 1.0, 0.0))));
+	public static final Vector3D K = new Vector3D("k^", new Point3D("", new ArrayList<Double>(Arrays.asList(0.0, 0.0, 1.0))));
 
 	public Vector3D(String namePm, Point3D startingPointPm, Point3D endingPointPm)
 	{
@@ -20,6 +19,11 @@ public class Vector3D extends NDimensionalVector
 	public Vector3D(String namePm, Point3D endingPointPm)
 	{
 		super(namePm, endingPointPm);
+	}
+
+	public Vector3D(String namePm, double endX, double endY, double endZ)
+	{
+		super(namePm, new Point3D("", endX, endY, endZ));
 	}
 
 	public Vector3D(NDimensionalVector ndVectorPm)

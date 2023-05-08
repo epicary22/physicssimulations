@@ -6,11 +6,8 @@ import java.util.ArrayList;
 
 public class Vector2D extends NDimensionalVector
 {
-	public static Vector2D I, J;
-	static {
-		I = new Vector2D("i^", new Point2D("i^", new ArrayList<>(Arrays.asList(1.0, 0.0))));
-		J = new Vector2D("j^", new Point2D("j^", new ArrayList<>(Arrays.asList(0.0, 1.0))));
-	}
+	public static final Vector2D I = new Vector2D("i^", new Point2D("", new ArrayList<>(Arrays.asList(1.0, 0.0))));
+	public static final Vector2D J = new Vector2D("j^", new Point2D("", new ArrayList<>(Arrays.asList(0.0, 1.0))));
 
 	public Vector2D(String namePm, Point2D startingPointPm, Point2D endingPointPm)
 	{
@@ -20,6 +17,11 @@ public class Vector2D extends NDimensionalVector
 	public Vector2D(String namePm, Point2D endingPointPm)
 	{
 		super(namePm, endingPointPm);
+	}
+
+	public Vector2D(String namePm, double endX, double endY)
+	{
+		super(namePm, new Point2D("", endX, endY)
 	}
 
 	public Vector2D(NDimensionalVector ndVectorPm)
