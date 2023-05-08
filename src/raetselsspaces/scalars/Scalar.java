@@ -23,6 +23,6 @@ public class Scalar
 
 	public String toString()
 	{
-		return String.format("%s<%.2f>", this.name, this.value);
+		return String.format("%s[%.2f]", this.name, this.value);
 	}
 }

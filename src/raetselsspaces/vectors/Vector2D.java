@@ -21,7 +21,7 @@ public class Vector2D extends NDimensionalVector
 
 	public Vector2D(String namePm, double endX, double endY)
 	{
-		super(namePm, new Point2D("", endX, endY)
+		super(namePm, new Point2D("", endX, endY));
 	}
 
 	public Vector2D(NDimensionalVector ndVectorPm)
